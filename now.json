@@ -1,6 +1,6 @@
 {
   "name": "commonlabs.id",
-  "alias": ["commonlabs.id"],
+  "alias": "commonlabs.id",
   "version": 2,
   "regions": ["sin1"]
 }
