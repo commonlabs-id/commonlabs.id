@@ -1,0 +1,56 @@
+{
+  "name": "commonlabs.id",
+  "version": "1.0.0",
+  "description": "The website.",
+  "main": "N/A",
+  "repository": "https://github.com/commonlabs-id/commonlabs.id.git",
+  "author": "commonlabs ID <hello@commonlabs.id>",
+  "contributors": [
+    {
+      "name": "Resi Respati",
+      "email": "resir014@gmail.com",
+      "url": "https://resir014.xyz"
+    },
+    {
+      "name": "Muhammad Mustadi",
+      "email": "hello@mathdro.id",
+      "url": "https://mathdro.id"
+    }
+  ],
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.22",
+    "@emotion/styled": "^10.0.23",
+    "babel-plugin-emotion": "^10.0.23",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "next": "^9.1.5",
+    "polished": "^3.4.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.17",
+    "@types/react": "^16.9.16",
+    "@types/react-dom": "^16.9.4",
+    "@types/styled-jsx": "^2.2.8",
+    "@typescript-eslint/eslint-plugin": "^2.11.0",
+    "@typescript-eslint/parser": "^2.11.0",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.3"
+  }
+}
