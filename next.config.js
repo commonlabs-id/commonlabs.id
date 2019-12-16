@@ -1,5 +1,5 @@
 module.exports = {
-  publicRuntimeConfig: {
-    baseUrl: 'https://commonlabs.id',
+  env: {
+    BASE_URL: 'https://commonlabs.id',
   },
 };
