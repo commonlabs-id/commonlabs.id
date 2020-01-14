@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Pinjollist",
+    "description": "Layanan penyedia repositori data terbuka (open data repository) perusahaan-perusahaan fintech peer-to-peer (P2P) lending yang beroperasi di Indonesia, serta terdaftar dan memiliki lisensi dari Otoritas Jasa Keuangan (OJK).",
+    "imageUrl": "/static/images/pinjollist.png",
+    "projectLink": "https://pinjollist.now.sh/"
+  },
+  {
+    "title": "@JKTWaterLevel",
+    "description": "Bot Twitter yang melaporkan kondisi status ketinggian air di pintu-pintu air di sekitar Jakarta secara berkala.",
+    "imageUrl": "/static/images/jktwaterlevel.png",
+    "projectLink": "https://twitter.com/JKTWaterLevel"
+  }
+]

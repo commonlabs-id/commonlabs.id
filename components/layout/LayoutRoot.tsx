@@ -6,6 +6,7 @@ import global from 'styles/global';
 import fonts from 'styles/fonts';
 
 import SEOTags from './SEOTags';
+import Footer from './Footer';
 
 export interface LayoutRootProps {
   isHomepage?: boolean;
@@ -39,6 +40,7 @@ const LayoutRoot: React.FC<LayoutRootProps> = ({
       {global}
     </style>
     {children}
+    <Footer isHomepage={isHomepage} />
   </Root>
 );
 

@@ -2,8 +2,27 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import { transparentize } from 'polished';
 import { colors, breakpoints } from 'styles/variables';
-import HeroWrapper from 'components/hero/HeroWrapper';
+import { HeroWrapper, HeroBlock, HeroTitles } from 'components/hero';
 import { LayoutRoot, Container } from 'components/layout';
+import { ShowcaseWrapper, ProjectShowcase } from 'components/showcase';
+import { Transition } from 'react-transition-group';
+
+import projects from 'data/projects.json';
+import useVerticalScroll from 'utils/use-vertical-scroll';
+
+const FADE_DURATION = 300;
+
+const defaultStyle = {
+  transition: `opacity ${FADE_DURATION}ms ease-in-out`,
+  opacity: 0,
+};
+
+const transitionStyles = {
+  entering: { opacity: 1 },
+  entered: { opacity: 1 },
+  exiting: { opacity: 0 },
+  exited: { opacity: 0 },
+};
 
 const Anchor = styled('a')`
   color: ${colors.foreground};
@@ -19,16 +38,12 @@ const Anchor = styled('a')`
   }
 `;
 
-const HeroTitles = styled('div')`
-  margin-bottom: 24px;
-`;
-
 const HeroSocials = styled('ul')`
   margin: 0;
   padding: 0;
   list-style-type: none;
-  font-size: 18px;
-  line-height: 26px;
+  font-size: 16px;
+  line-height: 24px;
 
   @media screen and (min-width: ${breakpoints.md}px) {
     font-size: 20px;
@@ -49,34 +64,23 @@ const HeroSocialItem = styled('li')`
   }
 `;
 
-const HeroBlock = styled('div')`
-  text-align: center;
-
-  @media screen and (min-width: ${breakpoints.lg}px) {
-    text-align: left;
-  }
-`;
-
-const H1 = styled('h1')`
+const Logo = styled('img')`
   display: inline-block;
-  margin-top: 0;
-  margin-bottom: 16px;
-  color: ${colors.foreground};
-  font-weight: 900;
-  font-size: 40px;
-  line-height: 1;
-  border-bottom: 6px solid ${colors.foreground};
+  max-width: 100%;
+  height: 100%;
+  max-height: 48px;
 
   @media screen and (min-width: ${breakpoints.md}px) {
-    font-size: 56px;
+    max-height: 72px;
   }
 `;
 
 const Subheading = styled('p')`
   margin: 0;
+  margin-top: 16px;
   color: ${colors.foreground};
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 20px;
+  line-height: 28px;
 
   @media screen and (min-width: ${breakpoints.md}px) {
     font-size: 32px;
@@ -94,14 +98,34 @@ const Subheading = styled('p')`
   }
 `;
 
+interface ScrollDownWrapperProps {
+  hidden?: boolean;
+}
+
+const ScrollDownWrapper = styled('div')<ScrollDownWrapperProps>`
+  position: fixed;
+  bottom: 16px;
+  width: 100%;
+  max-width: calc(100% - 32px);
+  text-align: center;
+`;
+
+const ScrollDownText = styled('p')`
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+`;
+
 export default function IndexPage() {
+  const hasReachedThreshold = useVerticalScroll(100);
+
   return (
     <LayoutRoot pageTitle="commonlabs ID" isHomepage>
       <HeroWrapper>
         <Container size="xl">
           <HeroBlock>
             <HeroTitles>
-              <H1>commonlabs</H1>
+              <Logo alt="commonlabs" src="/static/images/WordmarkDark.svg" />
               <Subheading>
                 Open Source untuk <span>Kebaikan</span>.
               </Subheading>
@@ -128,7 +152,37 @@ export default function IndexPage() {
             </HeroSocials>
           </HeroBlock>
         </Container>
+        <Transition in={!hasReachedThreshold} timeout={FADE_DURATION}>
+          {state => (
+            <ScrollDownWrapper
+              style={{
+                ...defaultStyle,
+                ...transitionStyles[state],
+              }}
+            >
+              <ScrollDownText>
+                <a href="#projects">scroll ke bawah</a>
+              </ScrollDownText>
+            </ScrollDownWrapper>
+          )}
+        </Transition>
       </HeroWrapper>
+      <section id="projects">
+        {projects.map((project, i) => (
+          <ShowcaseWrapper key={project.title}>
+            <Container size="xl">
+              <ProjectShowcase
+                reverse={i % 2 === 0}
+                highlightColor={i % 2 === 0 ? colors.highlight02 : colors.highlight03}
+                title={project.title}
+                description={project.description}
+                imageUrl={project.imageUrl}
+                projectLink={project.projectLink}
+              />
+            </Container>
+          </ShowcaseWrapper>
+        ))}
+      </section>
     </LayoutRoot>
   );
 }
