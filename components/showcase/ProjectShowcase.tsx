@@ -29,6 +29,7 @@ const ProjectImage = styled('div')`
     display: block;
     height: 100%;
     max-height: 450px;
+    width: 100%;
   }
 `;
 
