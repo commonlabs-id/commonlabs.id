@@ -21,13 +21,11 @@ const ProjectImage = styled('div')`
   display: block;
   border-radius: 8px;
   overflow: hidden;
-  height: 100%;
   max-height: 450px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.25);
 
   img {
     display: block;
-    height: 100%;
     max-height: 450px;
     max-width: 100%;
   }
