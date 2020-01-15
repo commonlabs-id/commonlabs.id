@@ -118,6 +118,7 @@ const ScrollDownText = styled('p')`
 
 export default function IndexPage() {
   const hasReachedThreshold = useVerticalScroll(100);
+  const hasReachedBottomThreshold = useVerticalScroll(300);
 
   return (
     <LayoutRoot pageTitle="commonlabs ID" isHomepage>
@@ -152,20 +153,22 @@ export default function IndexPage() {
             </HeroSocials>
           </HeroBlock>
         </Container>
-        <Transition in={!hasReachedThreshold} timeout={FADE_DURATION}>
-          {state => (
-            <ScrollDownWrapper
-              style={{
-                ...defaultStyle,
-                ...transitionStyles[state],
-              }}
-            >
-              <ScrollDownText>
-                <a href="#projects">scroll ke bawah</a>
-              </ScrollDownText>
-            </ScrollDownWrapper>
-          )}
-        </Transition>
+        {!hasReachedBottomThreshold && (
+          <Transition in={!hasReachedThreshold} timeout={FADE_DURATION}>
+            {state => (
+              <ScrollDownWrapper
+                style={{
+                  ...defaultStyle,
+                  ...transitionStyles[state],
+                }}
+              >
+                <ScrollDownText>
+                  <a href="#projects">scroll ke bawah</a>
+                </ScrollDownText>
+              </ScrollDownWrapper>
+            )}
+          </Transition>
+        )}
       </HeroWrapper>
       <section id="projects">
         {projects.map((project, i) => (
