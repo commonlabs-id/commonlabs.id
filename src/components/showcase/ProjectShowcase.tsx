@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import { transparentize } from 'polished';
-import { breakpoints, colors } from 'styles/variables';
+import { breakpoints, colors } from '~/styles/variables';
 
 interface ReversibleProps {
   reverse?: boolean;
@@ -12,7 +12,7 @@ const Root = styled('div')<ReversibleProps>`
   flex-direction: column;
 
   @media screen and (min-width: ${breakpoints.md}px) {
-    flex-direction: ${props => (props.reverse ? 'row-reverse' : 'row')};
+    flex-direction: ${(props) => (props.reverse ? 'row-reverse' : 'row')};
     justify-content: space-between;
   }
 `;
@@ -39,7 +39,7 @@ const ProjectDescription = styled('div')<ReversibleProps>`
   @media screen and (min-width: ${breakpoints.md}px) {
     max-width: 400px;
     margin-top: 0;
-    ${props => (props.reverse ? 'margin-right: 24px;' : 'margin-left: 24px;')}
+    ${(props) => (props.reverse ? 'margin-right: 24px;' : 'margin-left: 24px;')}
   }
 `;
 
@@ -62,9 +62,9 @@ const ProjectTitle = styled('h2')<HighlightProps>`
     border-radius: 0.5em 0 0.5em 0;
     background-image: linear-gradient(
       -100deg,
-      ${props => transparentize(0.7, props.highlightColor)},
-      ${props => transparentize(0.3, props.highlightColor)} 95%,
-      ${props => transparentize(0.9, props.highlightColor)}
+      ${(props) => transparentize(0.7, props.highlightColor)},
+      ${(props) => transparentize(0.3, props.highlightColor)} 95%,
+      ${(props) => transparentize(0.9, props.highlightColor)}
     );
   }
 `;

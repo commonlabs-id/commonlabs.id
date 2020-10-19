@@ -1,9 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 
-import normalize from 'styles/reset';
-import global from 'styles/global';
-import fonts from 'styles/fonts';
+import global from '~/styles/global';
 
 import SEOTags from './SEOTags';
 import Footer from './Footer';
@@ -30,12 +28,6 @@ const LayoutRoot: React.FC<LayoutRootProps> = ({
 }) => (
   <Root>
     <SEOTags isHomepage={isHomepage} pageTitle={pageTitle} description={description} />
-    <style jsx global>
-      {normalize}
-    </style>
-    <style jsx global>
-      {fonts}
-    </style>
     <style jsx global>
       {global}
     </style>

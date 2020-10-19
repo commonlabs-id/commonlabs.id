@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import styled from '@emotion/styled';
-import { breakpoints } from 'styles/variables';
+import { breakpoints } from '~/styles/variables';
 
 import Container from './Container';
 

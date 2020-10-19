@@ -1,14 +1,14 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import { transparentize } from 'polished';
-import { colors, breakpoints } from 'styles/variables';
-import { HeroWrapper, HeroBlock, HeroTitles } from 'components/hero';
-import { LayoutRoot, Container } from 'components/layout';
-import { ShowcaseWrapper, ProjectShowcase } from 'components/showcase';
+import { colors, breakpoints } from '~/styles/variables';
+import { HeroWrapper, HeroBlock, HeroTitles } from '~/components/hero';
+import { LayoutRoot, Container } from '~/components/layout';
+import { ShowcaseWrapper, ProjectShowcase } from '~/components/showcase';
 import { Transition } from 'react-transition-group';
 
-import projects from 'data/projects.json';
-import useVerticalScroll from 'utils/use-vertical-scroll';
+import projects from '~/data/projects.json';
+import useVerticalScroll from '~/utils/use-vertical-scroll';
 
 const FADE_DURATION = 300;
 
@@ -155,7 +155,7 @@ export default function IndexPage() {
         </Container>
         {!hasReachedBottomThreshold && (
           <Transition in={!hasReachedThreshold} timeout={FADE_DURATION}>
-            {state => (
+            {(state) => (
               <ScrollDownWrapper
                 style={{
                   ...defaultStyle,
