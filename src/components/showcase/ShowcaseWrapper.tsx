@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { breakpoints } from 'styles/variables';
+import { breakpoints } from '~/styles/variables';
 
 const ShowcaseWrapper = styled('div')`
   padding: 72px 16px;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { LayoutRoot, Page } from 'components/layout';
-import { colors } from 'styles/variables';
+import { LayoutRoot, Page } from '~/components/layout';
+import { colors } from '~/styles/variables';
 
 const Paragraph = styled('p')`
   margin-top: 0;

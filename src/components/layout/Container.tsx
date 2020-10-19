@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { widths, breakpoints } from 'styles/variables';
+import { widths, breakpoints } from '~/styles/variables';
 
 export interface ContainerProps {
   className?: string;
