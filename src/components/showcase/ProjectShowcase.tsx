@@ -33,6 +33,7 @@ const ProjectImage = styled('div')`
 
 const ProjectDescription = styled('div')<ReversibleProps>`
   display: block;
+  position: relative;
   width: 100%;
   margin-top: 24px;
 
@@ -56,16 +57,10 @@ const ProjectTitle = styled('h2')<HighlightProps>`
   @media screen and (min-width: ${breakpoints.md}px) {
     font-size: 40px;
     line-height: 48px;
-  }
 
-  span {
-    border-radius: 0.5em 0 0.5em 0;
-    background-image: linear-gradient(
-      -100deg,
-      ${(props) => transparentize(0.7, props.highlightColor)},
-      ${(props) => transparentize(0.3, props.highlightColor)} 95%,
-      ${(props) => transparentize(0.9, props.highlightColor)}
-    );
+    span {
+      background-color: ${(props) => props.highlightColor};
+    }
   }
 `;
 
@@ -114,7 +109,7 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({
   imageUrl,
   projectLink,
   reverse = false,
-  highlightColor = colors.highlight04,
+  highlightColor = colors.purple['200'],
 }) => {
   return (
     <Root reverse={reverse}>

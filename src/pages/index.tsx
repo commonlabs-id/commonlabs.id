@@ -1,14 +1,15 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import { Transition } from 'react-transition-group';
 import { transparentize } from 'polished';
+
 import { colors, breakpoints } from '~/styles/variables';
 import { HeroWrapper, HeroBlock, HeroTitles } from '~/components/hero';
 import { LayoutRoot, Container } from '~/components/layout';
 import { ShowcaseWrapper, ProjectShowcase } from '~/components/showcase';
-import { Transition } from 'react-transition-group';
+import useVerticalScroll from '~/utils/use-vertical-scroll';
 
 import projects from '~/data/projects.json';
-import useVerticalScroll from '~/utils/use-vertical-scroll';
 
 const FADE_DURATION = 300;
 
@@ -88,13 +89,7 @@ const Subheading = styled('p')`
   }
 
   span {
-    border-radius: 0.5em 0 0.5em 0;
-    background-image: linear-gradient(
-      -100deg,
-      ${transparentize(0.7, colors.highlight04)},
-      ${transparentize(0.3, colors.highlight04)} 95%,
-      ${transparentize(0.9, colors.highlight04)}
-    );
+    background-color: ${colors.cyan['200']};
   }
 `;
 
@@ -142,6 +137,11 @@ export default function IndexPage() {
                 </Anchor>
               </HeroSocialItem>
               <HeroSocialItem>
+                <Anchor href="https://discord.gg/xNUctwD" target="_blank" rel="noopener noreferrer">
+                  discord
+                </Anchor>
+              </HeroSocialItem>
+              <HeroSocialItem>
                 <Anchor
                   href="https://github.com/commonlabs-id"
                   target="_blank"
@@ -176,7 +176,7 @@ export default function IndexPage() {
             <Container size="xl">
               <ProjectShowcase
                 reverse={i % 2 === 0}
-                highlightColor={i % 2 === 0 ? colors.highlight02 : colors.highlight03}
+                highlightColor={i % 2 === 0 ? colors.green['200'] : colors.blue['200']}
                 title={project.title}
                 description={project.description}
                 imageUrl={project.imageUrl}

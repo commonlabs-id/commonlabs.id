@@ -49,12 +49,12 @@ const global = css.global`
   }
 
   ::selection {
-    background-color: ${colors.highlight04};
+    background-color: ${colors.cyan['200']};
     color: ${colors.foreground};
   }
 
   ::-moz-selection {
-    background-color: ${colors.highlight04};
+    background-color: ${colors.cyan['200']};
     color: ${colors.foreground};
   }
 
